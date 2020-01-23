@@ -7,7 +7,7 @@ gem 'rails', '5.0.7'
 gem 'bootstrap-sass', '3.4.1'
 gem 'bcrypt',                  '3.1.12'
 
-#gem 'faker',                   '1.7.3'
+gem 'faker',                   '1.7.3'
 
 gem 'carrierwave',             '1.2.2'
 
