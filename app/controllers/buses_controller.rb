@@ -6,5 +6,6 @@ class BusesController < ApplicationController
     
     def show
         @bus = Bus.find(params[:id])
+        @seats = @bus.seats.all
     end
 end
