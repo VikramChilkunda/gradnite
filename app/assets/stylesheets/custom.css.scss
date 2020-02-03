@@ -166,3 +166,45 @@ input {
         border-bottom: 1px solid $gray-lighter;
     }
 }
+
+
+/* END TUTORIAL STYLES */
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
+.grid-container-single {
+    display: grid;
+    grid-template-columns: auto;
+    background-color: #2196F3;
+    padding: 0px 10px;
+    width: 11%;
+    
+    .grid-item-single{
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#front-indicator{
+    float: right;
+    font-size: 20px;
+}
+#back-indicator{
+    font-size: 20px;
+}
