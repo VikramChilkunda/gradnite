@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(idnum: params[:session][:idnum])
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by(mobilenum: params[:session][:mobilenum])
+    if user && user.authenticate(params[:session][:idnum])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_back_or user

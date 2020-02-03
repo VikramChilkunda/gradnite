@@ -6,14 +6,13 @@
             <%= render 'shared/error_messages' %>
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
+            
             <%= f.label :ID_NUMBER %>
             <%= f.text_field :idnum, class: 'form-control' %>
+            
             <%= f.label :MOBILE_NUMBER %>
             <%= f.text_field :mobilenum, class: 'form-control' %>
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
-            <%= f.label :password_confirmation, "Confirmation" %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
     </div>

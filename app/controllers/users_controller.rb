@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    @user.password = user_params[:idnum]
+    @user.password_confirmation = user_params[:password]
     if @user.save
       log_in @user
       flash[:success] = "You have successfully registered for the GradNite App!"

@@ -1,0 +1,8 @@
+<% provide(:title, 'All Buses') %>
+<h1>All Buses</h1>
+
+<ul class="users">
+    <% @buses.each do |bus| %>
+        <%= render @buses %>
+    <% end %>
+</ul>
