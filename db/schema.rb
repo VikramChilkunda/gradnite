@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200203001052) do
+ActiveRecord::Schema.define(version: 20200204021547) do
 
   create_table "buses", force: :cascade do |t|
-    t.integer  "number"
+    t.integer  "busnum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "seats", force: :cascade do |t|
-    t.integer  "number"
+    t.integer  "seatnum"
+    t.integer  "bus_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "seat_id"
-    t.integer  "bus_number"
+    t.integer  "user_id"
+    t.index ["bus_id"], name: "index_seats_on_bus_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,6 +38,8 @@ ActiveRecord::Schema.define(version: 20200203001052) do
     t.boolean  "admin",           default: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer  "busnum"
+    t.integer  "seatnum"
   end
 
 end
