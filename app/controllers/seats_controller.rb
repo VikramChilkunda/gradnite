@@ -3,12 +3,20 @@ class SeatsController < ApplicationController
     
     def show
         @seat = Seat.find(params[:id])
-        @seat.update_attribute(:user_id, current_user[:idnum])
+        
+        # Remove user's ownership of previous seat, if they are changing seats
+        if(Seat.find_by(user_id: current_user[:idnum]) != nil)
+            Seat.find_by(user_id: current_user[:idnum]).update_attribute(:user_id, nil)
+        end
+        
+        if(@seat[:user_id] == nil)
+            @seat.update_attribute(:user_id, current_user[:idnum])
+        end
         
         current_user.update_attribute(:seatnum, @seat[:seatnum])
         current_user.update_attribute(:busnum, @seat[:bus_id])
         
-        redirect_to current_user
+        redirect_to Bus.find_by(busnum: @seat.bus_id)
     end
     
     private
