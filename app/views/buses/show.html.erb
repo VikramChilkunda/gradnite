@@ -2,9 +2,9 @@
 
 <% def message(seat) %>
     <% if(seat.user_id != nil)%>
-        <% User.find_by(idnum: seat.user_id).name %>
+        <% User.find_by(idnum: seat.user_id).name.split(' ').first + " " + User.find_by(idnum: seat.user_id).name.split(' ').second[0...1]%>
     <% else %>
-        <% str = "Bus " + seat.bus_id.to_s + ", Seat " + seat.seatnum.to_s %>
+        <% str = seat.seatnum.to_s %>
     <% end %>
 <% end %>
 
@@ -17,9 +17,9 @@
         </section>
     </aside>
 </div>
-
-<span id="front-indicator">Front</span>
-<span id="back-indicator">Back</span>
+<br><br>
+<span id="front-indicator">Driver's Side</span>
+<span id="back-indicator">Back Side</span>
 <br><br>
 <div class="grid-container">
   <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 1)), @bus.seats.find_by(seatnum: 1) %></div>

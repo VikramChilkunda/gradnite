@@ -10,7 +10,7 @@ $gray-medium-light: #eaeaea;
 }
 
 body {
-    padding-top: 60px;
+    // padding-top: 60px;
 }
 section {
     overflow: auto;
@@ -160,6 +160,7 @@ input {
 .users {
     list-style: none;
     margin: 0;
+    padding-left: 0;
     li {
         overflow: auto;
         padding: 10px 0;
@@ -188,18 +189,33 @@ input {
     .grid-item-single{
         background-color: rgba(255, 255, 255, 0.8);
         border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: 20px;
+        padding: 10px;
+        width: 120px;
+        height: 120px;
         font-size: 30px;
+        line-height: 100%;
         text-align: center;
+        display: flex; 
+        
+        a{
+            margin: auto;
+        }
     }
 }
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0;
-    max-width: 150px;
+    padding: 10px;
+    width: 120px;
+    height: 120px;
     font-size: 30px;
+    line-height: 100%;
     text-align: center;
+    display: flex; 
+    
+    a{
+        margin: auto;
+    }
 }
 
 #front-indicator{
@@ -208,4 +224,34 @@ input {
 }
 #back-indicator{
     font-size: 20px;
+}
+
+#bus{
+    width: 50%;
+    margin-bottom: 30px;
+    img{
+        max-width:100%;
+        max-height:100%;
+    }
+}
+
+.bus-num-text{
+    display: inline;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    color: black !important;
+}
+.navbar-default .navbar-text {
+    color: black !important;
+    font-size: 15px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: black !important;
+    font-size: 15px;
+}
+
+.container{
+    width: 80%;
 }

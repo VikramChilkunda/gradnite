@@ -1,3 +1,6 @@
-<li>
-    <%= link_to bus.busnum, bus %>
-</li>
+<div id="bus">
+    <%= link_to bus do %>
+        <h2 class="bus-num-text"><%= bus.busnum %></h2>
+        <%= image_tag("bus.png") %>
+    <% end %>
+</div>

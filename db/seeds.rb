@@ -12,7 +12,7 @@ Bus.create(busnum: 7)
 Bus.create(busnum: 8)
 
 i = 0
-while i < 8
+while i < 9
   42.times do |n|
    seatnum = n
    bus_id = i
