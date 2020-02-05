@@ -271,11 +271,14 @@ input {
         margin-top: 25vh;
         position: relative;
         
-        .grid-item{
-            width: 8.5vw;
-            height: 8.5vw;
+        .grid-item, .grid-item-single{
+            width: 8.3vw;
+            height: 8.3vw;
         }
         
+    }
+    .grid-container-single{
+        width: 12vw;
     }
     #back-indicator{
         display: none;
