@@ -2,8 +2,10 @@
 
 one:
   seatnum: 1
-  bus: one
+  bus_id: 1
+  references: 
 
 two:
   seatnum: 1
-  bus: two
+  bus_id: 1
+  references: 
