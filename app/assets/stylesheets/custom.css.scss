@@ -189,13 +189,13 @@ input {
     .grid-item-single{
         background-color: rgba(255, 255, 255, 0.8);
         border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        width: 120px;
-        height: 120px;
-        font-size: 30px;
+        padding: 0.52vw;
+        width: 6.09vw;
+        height: 6.09vw;
+        font-size: 1.5625vw;
         line-height: 100%;
         text-align: center;
-        display: flex; 
+        display: flex;
         
         a{
             margin: auto;
@@ -205,10 +205,10 @@ input {
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    width: 120px;
-    height: 120px;
-    font-size: 30px;
+    padding: 0.52vw;
+    width: 6.09vw;
+    height: 6.4vw;
+    font-size: 1.5625vw;
     line-height: 100%;
     text-align: center;
     display: flex; 
@@ -227,7 +227,7 @@ input {
 }
 
 #bus{
-    width: 50%;
+    width: 60%;
     margin-bottom: 30px;
     img{
         max-width:100%;
@@ -253,5 +253,39 @@ input {
 }
 
 .container{
-    width: 80%;
+    max-width: 70vw;
+}
+
+@media screen and (max-width: 600px){
+    html, body{
+        width: 100vw;
+    }
+    .container{
+        max-width: 95vw;
+    }
+    #bus{
+        width: 100%;
+    }
+    .bus-img{
+        transform: rotate(-90deg) scale(1.6);
+        margin-top: 25vh;
+        position: relative;
+        
+        .grid-item{
+            width: 8.5vw;
+            height: 8.5vw;
+        }
+        
+    }
+    #back-indicator{
+        display: none;
+    }
+    #front-indicator{
+        margin-top: -6.2vw;
+        float: left;
+        font-size: 15px;
+    }
+    .navbar{
+        margin-bottom: 0 !important;
+    }
 }
