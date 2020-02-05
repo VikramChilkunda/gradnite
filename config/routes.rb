@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+
   root                    'buses#index'
   get 'help'        =>    'static_pages#help'
   get 'signup'      =>    'users#new'
