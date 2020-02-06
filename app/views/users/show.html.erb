@@ -6,8 +6,17 @@
                 <%= @user.name %><br>
                 <%= @user.idnum %><br>
                 <%= @user.mobilenum %><br>
-                Bus#<%= @user.busnum %><br>
-                Seat#<%= @user.seatnum %>
+                
+                <% if @user.seatnum != nil %>
+                    Bus#<%= @user.busnum %><br>
+                    Seat#<%= @user.seatnum %><br>
+                <% else %>
+                    Seat not chosen<br><br>
+                <% end %>
+                
+                <% if admin? %>
+                    <strong>Administrator</strong>
+                <% end %>
             </h1>
         </section>
     </aside>

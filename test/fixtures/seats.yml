@@ -3,9 +3,9 @@
 one:
   seatnum: 1
   bus_id: 1
-  references: 
+  bus: one
 
 two:
   seatnum: 1
   bus_id: 1
-  references: 
+  bus: two

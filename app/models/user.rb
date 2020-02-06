@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     attr_accessor :remember_token
-    
+    before_save :default_values
+
     validates :name, presence: true, length: {maximum: 50}
     validates :idnum, presence: true, :length => { :is => 6 }, uniqueness: true
     validates :mobilenum, presence: true, :length => { :is => 10 }, uniqueness: true
@@ -29,4 +30,5 @@ class User < ApplicationRecord
     def forget
         update_attribute(:remember_digest, nil)
     end
+    
 end
