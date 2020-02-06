@@ -1,9 +1,13 @@
 <% provide(:title, "Help") %>
 <h1>Help</h1>
-<p>
-    Get help on the Ruby on Rails Tutorial at the
-    <a href="http://www.railstutorial.org/#help">Rails Tutorial help section</a>.
-    To get help on this sample app, see the
-    <a href="http://www.railstutorial.org/book"><em>Ruby on Rails Tutorial</em>
-    book</a>.
+<p class="help-text">
+    <% if logged_in? %>
+        To choose your seat, click the "Home" button, and choose any of the 8 buses. 
+        Then, click on the seat you want to choose.
+        To change your seat, simply click on another seat that is empty. 
+    <% else %>
+        To choose your seat, first sign up by clicking the link at the top right-hand side of the page.
+        Then, click the "Home" button, and choose any of the 8 buses. Finally, click on the seat you want to choose.
+        To change your seat, simply click on another seat that is empty. 
+    <% end %>
 </p>
