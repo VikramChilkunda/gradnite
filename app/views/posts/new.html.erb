@@ -4,13 +4,13 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_for(@post) do |f| %>
-            <%= f.label :Title %>
+            <%= f.label :title %>
             <%= f.text_field :title, class: 'form-control' %>
             
             <%= f.label :Message %>
             <%= f.text_field :content, class: 'form-control' %>
             
-            <%= f.submit "Create my account", class: "btn btn-primary" %>
+            <%= f.submit "Create Post", class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>
