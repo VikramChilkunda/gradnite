@@ -9,14 +9,13 @@
               <th scope="col">Title</th>
               <th scope="col">Message</th>
               <th scope="col">Time</th>
+              <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-                <% @posts.each do |post| %>
-                    <tr>
-                        <%= render post %>
-                    </tr>
-                <% end %>
+            <% @posts.each do |post| %>
+                <%= render post %>
+            <% end %>
         </tbody>
     </table>
 </ul>

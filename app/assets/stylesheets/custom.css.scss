@@ -190,7 +190,7 @@ input {
         background-color: rgba(255, 255, 255, 0.8);
         border: 1px solid rgba(0, 0, 0, 0.8);
         padding: 0.52vw;
-        width: 6.09vw;
+        width: 8vw;
         height: 6.09vw;
         font-size: 1.5625vw;
         line-height: 100%;
@@ -205,10 +205,10 @@ input {
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0.52vw;
-    width: 6.09vw;
+    padding: 0.25vw;
+    width: 8vw;
     height: 6.4vw;
-    font-size: 1.5625vw;
+    font-size: 1.3625vw;
     line-height: 100%;
     text-align: center;
     display: flex; 
@@ -253,7 +253,7 @@ input {
 }
 
 .container{
-    max-width: 80vw;
+    width: 90vw;
 }
 
 .jumbotron{
@@ -301,4 +301,7 @@ input {
     .navbar{
         margin-bottom: 0 !important;
     }
+}
+.btn-primary{
+    float: right;
 }
