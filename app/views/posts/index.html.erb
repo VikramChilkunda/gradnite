@@ -1,0 +1,22 @@
+<% provide(:title, 'All posts') %>
+<h1>All posts</h1>
+
+<ul class="users">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Message</th>
+              <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+                <% @posts.each do |post| %>
+                    <tr>
+                        <%= render post %>
+                    </tr>
+                <% end %>
+        </tbody>
+    </table>
+</ul>

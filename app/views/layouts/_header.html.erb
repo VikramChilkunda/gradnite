@@ -49,9 +49,11 @@
         <li class="item"><%= link_to "Home", root_path %></li>
         <li class="item"><%= link_to "Help", help_path %></li>
         <li class="item"><%= link_to "Sign Up", signup_path %></li>
+        <li class="item"><%= link_to "All Posts", posts_path %></li>
       <% if logged_in? %>
         <% if admin? %>
             <li class="item"><%= link_to "Users", users_path %></li>
+            <li class="item"><%= link_to "Create Post", createpost_path %></li>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">

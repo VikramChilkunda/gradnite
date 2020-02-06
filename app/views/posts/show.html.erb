@@ -1,0 +1,15 @@
+<% provide(:title, @post.title) %>
+<div class="row">
+    <aside class="col-md-4">
+        <section class="user_info">
+            <div class="jumbotron">
+                <h1>
+                    <%= @post.title %><br>
+                </h1>
+                <p>
+                    <%= @post.content  %>
+                </p>
+            </div>
+        </section>
+    </aside>
+</div>

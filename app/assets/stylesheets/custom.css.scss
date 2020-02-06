@@ -253,8 +253,15 @@ input {
 }
 
 .container{
-    max-width: 70vw;
+    max-width: 80vw;
 }
+
+.jumbotron{
+    p{
+        margin-left: 10px;    
+    }
+}
+
 
 @media screen and (max-width: 600px){
     html, body{

@@ -1,0 +1,9 @@
+<div id="bus">
+    <%= link_to post do %>
+        <th scope="row"><%= Post.count - post.id + 1%></th>
+        <td><%= post.title %></td>
+        <td><%= post.content[0...20] + "..." %></td>
+        <% t = post.created_at.in_time_zone('Pacific Time (US & Canada)') %>
+        <td><%= t.strftime("Created on %m/%d/%Y at %I:%M") %></td>
+    <% end %>
+</div>
