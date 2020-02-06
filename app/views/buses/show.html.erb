@@ -1,7 +1,7 @@
 <% provide(:title, @bus.busnum.to_s) %>
 
 <% def message(seat) %>
-    <% if(seat.user_id != nil)%>
+    <% if(seat.user_id != nil && User.find_by(idnum: seat.user_id).name)%>
         <% User.find_by(idnum: seat.user_id).name.split(' ').first + " " + User.find_by(idnum: seat.user_id).name.split(' ').second[0...1]%>
     <% else %>
         <% str = seat.seatnum.to_s %>
