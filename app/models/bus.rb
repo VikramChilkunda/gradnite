@@ -7,7 +7,9 @@ class Bus < ApplicationRecord
         
         str = []
         @seats.each do |seat|
-           str.push(User.find_by(idnum: seat.user_id).name + " ")
+            if(seat.user_id)
+                str.push(User.find_by(idnum: seat.user_id).name + " ")
+            end
         end
         
         str = str.sort_by{|s| s.split(' ').second}
