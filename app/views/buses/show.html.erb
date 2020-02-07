@@ -1,11 +1,12 @@
 <% provide(:title, "Bus " + @bus.busnum.to_s) %>
 
 <% def message(seat) %>
-    <% if(seat != nil && User.find_by(idnum: seat.user_id).name != nil && 
+    <% if(seat != nil && User.find_by(idnum: seat.user_id) != nil && 
+                User.find_by(idnum: seat.user_id).name && 
                 User.find_by(idnum: seat.user_id).name.split(' ').first && 
                 User.find_by(idnum: seat.user_id).name.split(' ').second) %>
         <% User.find_by(idnum: seat.user_id).name.split(' ').first + " " + (User.find_by(idnum: seat.user_id).name.split(' ').second)[0]%>
-    <% elsif(seat!= nil && User.find_by(idnum: seat.user_id).name != nil) %>
+    <% elsif(seat!= nil) %>
         <% str = seat.seatnum.to_s %>
     <% end %>
 <% end %>

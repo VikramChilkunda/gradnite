@@ -7,7 +7,7 @@ class Bus < ApplicationRecord
         
         str = []
         @seats.each do |seat|
-            if(seat.user_id)
+            if(seat.user_id && User.find_by(idnum: seat.user_id))
                 str.push(User.find_by(idnum: seat.user_id).name + " ")
             end
         end
