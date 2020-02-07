@@ -1,14 +1,15 @@
 User.create(name: "Vikram Chilkunda", idnum: "419419", mobilenum: "7472298734", password: "419419", password_confirmation: "419419", admin: "true")
-99.times do |n|
-    name = Faker::Name.name
-    idnum = (rand 111111...999999).to_s
-    mobilenum = (rand 1111111111...9999999999).to_s
-    User.create!(name: name,
-                idnum: idnum,
-                mobilenum: mobilenum,
-                password: idnum,
-                password_confirmation: idnum)
-end
+User.create(name: "Vikram Chilkunda", idnum: "419419", mobilenum: "7472298734", password: "419419", password_confirmation: "419419", admin: "true")
+# 99.times do |n|
+#     name = Faker::Name.name
+#     idnum = (rand 111111...999999).to_s
+#     mobilenum = (rand 1111111111...9999999999).to_s
+#     User.create!(name: name,
+#                 idnum: idnum,
+#                 mobilenum: mobilenum,
+#                 password: idnum,
+#                 password_confirmation: idnum)
+# end
 
 Bus.create(busnum: 1)
 Bus.create(busnum: 2)
@@ -30,9 +31,9 @@ while i < 9
   i += 1
 end
 
-a = 0
-while a < 10
-    str = "Post " + (1+a).to_s
-    Post.create(title: str, content: "This is an auto generated post")
-    a += 1
-end
+# a = 0
+# while a < 10
+#     str = "Post " + (1+a).to_s
+#     Post.create(title: str, content: "This is an auto generated post")
+#     a += 1
+# end

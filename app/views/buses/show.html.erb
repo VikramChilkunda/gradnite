@@ -22,7 +22,7 @@
     <span id="back-indicator">Back Side</span>
     <br>
 <div class="bus-img">
-
+    
     <div class="grid-container">
       <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 1)), @bus.seats.find_by(seatnum: 1) %></div>
       <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 2)), @bus.seats.find_by(seatnum: 2) %></div>
@@ -73,3 +73,16 @@
       <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 41)), @bus.seats.find_by(seatnum: 41) %></div>
     </div>
 </div>
+
+<ul class="users">
+    <center>
+        <% a = 1 %>
+        <% @bus.get_users.each do |user|%>
+             <%= a %>
+             <%= user.name %>
+             <%= render user %>
+             <% a+= 1%>
+             <br>
+        <% end %>
+    </center>
+</ul>
