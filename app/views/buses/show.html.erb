@@ -80,7 +80,6 @@
         <% @bus.get_users.each do |user|%>
              <% if user %>
                  <%= a %>
-                 <%= user.name %>
                  <%= render user %>
                  <% a+= 1%>
                  <br>
