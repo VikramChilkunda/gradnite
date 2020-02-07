@@ -1,16 +1,16 @@
 User.create(name: "Vikram Chilkunda", idnum: "419419", mobilenum: "7472298734", password: "419419", password_confirmation: "419419", admin: "true")
 User.create(name: "John Pehar", idnum: "111111", mobilenum: "1111111111", password: "111111", password_confirmation: "111111", admin: "true")
 
-99.times do |n|
-    name = Faker::Name.name
-    idnum = (rand 111111...999999).to_s
-    mobilenum = (rand 1111111111...9999999999).to_s
-    User.create!(name: name,
-                idnum: idnum,
-                mobilenum: mobilenum,
-                password: idnum,
-                password_confirmation: idnum)
-end
+# 99.times do |n|
+#     name = Faker::Name.name
+#     idnum = (rand 111111...999999).to_s
+#     mobilenum = (rand 1111111111...9999999999).to_s
+#     User.create!(name: name,
+#                 idnum: idnum,
+#                 mobilenum: mobilenum,
+#                 password: idnum,
+#                 password_confirmation: idnum)
+# end
 
 Bus.create(busnum: 1)
 Bus.create(busnum: 2)
@@ -25,9 +25,8 @@ i = 0
 while i < 9
   41.times do |n|
    seatnum = n
-   user_id = User.find(n+1)[:idnum]
    bus_id = i
-   Seat.create(seatnum: seatnum, bus_id: bus_id, user_id: user_id)
+   Seat.create(seatnum: seatnum, bus_id: bus_id)
   end
   i += 1
 end
