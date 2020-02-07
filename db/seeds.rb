@@ -24,9 +24,8 @@ i = 0
 while i < 9
   42.times do |n|
    seatnum = n
-   user_id = User.find(n+1)[:idnum]
    bus_id = i
-   Seat.create(seatnum: seatnum, bus_id: bus_id, user_id: user_id)
+   Seat.create(seatnum: seatnum, bus_id: bus_id)
   end
   i += 1
 end
