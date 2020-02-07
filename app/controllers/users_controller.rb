@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:destroy, :index]
   
   def index
-    @users = User.all
+    @admins = User.where(admin: true)
+    @admins.sort_by{:last_name}
+    @users = User.where(admin: false)
+    @users.sort_by{:last_name}
   end
   
   def show
@@ -19,6 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.password = user_params[:idnum]
     @user.password_confirmation = user_params[:password]
+    @user.last_name = @user.name.split(' ').second
     if @user.save
       log_in @user
       flash[:success] = "You have successfully registered for the GradNite App!"

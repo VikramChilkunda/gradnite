@@ -178,6 +178,22 @@ input {
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
     background-color: #2196F3;
     padding: 10px;
+    
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 0.52vw;
+        width: 8vw;
+        height: 6.4vw;
+        font-size: 1.3625vw;
+        line-height: 100%;
+        text-align: center;
+        display: flex; 
+        
+        .grid-item-text{
+            margin: auto;
+        }
+    }
 }
 .grid-container-single {
     display: grid;
@@ -191,32 +207,18 @@ input {
         border: 1px solid rgba(0, 0, 0, 0.8);
         padding: 0.52vw;
         width: 8vw;
-        height: 6.09vw;
+        height: 6.4vw;
         font-size: 1.3625vw;
         line-height: 100%;
         text-align: center;
         display: flex;
         
-        a{
+        .grid-item-text{
             margin: auto;
         }
     }
 }
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 0.25vw;
-    width: 8vw;
-    height: 6.4vw;
-    font-size: 1.3625vw;
-    line-height: 100%;
-    text-align: center;
-    display: flex; 
-    
-    a{
-        margin: auto;
-    }
-}
+
 
 #front-indicator{
     float: right;
@@ -302,6 +304,9 @@ input {
     .navbar{
         margin-bottom: 0 !important;
     }
+    .help-text{
+        font-size: 20px;
+    }
 }
 .btn-primary{
     float: right;
@@ -309,4 +314,7 @@ input {
 .jumbotron{
     width: 100%;
     text-align: center;
+}
+#bus-filter{
+    filter: grayscale(0.9);
 }

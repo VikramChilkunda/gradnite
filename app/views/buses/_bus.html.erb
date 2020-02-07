@@ -3,6 +3,13 @@
         <%= bus.busnum %>
     </h2>
     <%= link_to bus do %>
-        <%= image_tag("bus.png") %>
+        <% if bus.get_users.length == 41%>
+            <span id="bus-filter">
+                <h1>Bus Full</h1>
+                <%= image_tag("bus.png") %>
+            </span>
+        <% else %>
+            <%= image_tag("bus.png") %>
+        <% end %>
     <% end %>
 </div>

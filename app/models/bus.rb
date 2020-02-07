@@ -19,9 +19,7 @@ class Bus < ApplicationRecord
             obj = obj.rstrip
             users.push(User.find_by(name: obj))
         end
-        
-        
-        
+
         return users
         
     end

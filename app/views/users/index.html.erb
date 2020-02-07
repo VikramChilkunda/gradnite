@@ -1,4 +1,13 @@
 <% provide(:title, 'All users') %>
+
+<h1>All Administrators</h1>
+
+<ul class="users">
+    <% @admins.each do |admin| %>
+        <%= render admin %>
+    <% end %>
+</ul>
+
 <h1>All users</h1>
 
 <ul class="users">

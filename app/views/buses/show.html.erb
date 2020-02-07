@@ -1,9 +1,9 @@
 <% provide(:title, "Bus " + @bus.busnum.to_s) %>
 
 <% def message(seat) %>
-    <% if(seat.user_id != nil && User.find_by(idnum: seat.user_id).name.split(' ').first && User.find_by(idnum: seat.user_id).name.split(' ').second)%>
+    <% if(seat != nil && User.find_by(idnum: seat.user_id).name.split(' ').first && User.find_by(idnum: seat.user_id).name.split(' ').second)%>
         <% User.find_by(idnum: seat.user_id).name.split(' ').first + " " + (User.find_by(idnum: seat.user_id).name.split(' ').second)[0]%>
-    <% else %>
+    <% elsif(seat!= nil) %>
         <% str = seat.seatnum.to_s %>
     <% end %>
 <% end %>
@@ -22,68 +22,109 @@
     <span id="back-indicator">Back Side</span>
     <br>
 <div class="bus-img">
+    <% seats = @bus.seats %>
     
+    <% a = 1 %>
     <div class="grid-container">
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 1)), @bus.seats.find_by(seatnum: 1) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 2)), @bus.seats.find_by(seatnum: 2) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 3)), @bus.seats.find_by(seatnum: 3) %></div>  
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 4)), @bus.seats.find_by(seatnum: 4) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 5)), @bus.seats.find_by(seatnum: 5) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 6)), @bus.seats.find_by(seatnum: 6) %></div>  
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 7)), @bus.seats.find_by(seatnum: 7) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 8)), @bus.seats.find_by(seatnum: 8) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 9)), @bus.seats.find_by(seatnum: 9) %></div> 
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 10)), @bus.seats.find_by(seatnum: 10) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 11)), @bus.seats.find_by(seatnum: 11) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 12)), @bus.seats.find_by(seatnum: 12) %></div>  
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 13)), @bus.seats.find_by(seatnum: 13) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 14)), @bus.seats.find_by(seatnum: 14) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 15)), @bus.seats.find_by(seatnum: 15) %></div>  
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 16)), @bus.seats.find_by(seatnum: 16) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 17)), @bus.seats.find_by(seatnum: 17) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 18)), @bus.seats.find_by(seatnum: 18) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 19)), @bus.seats.find_by(seatnum: 19) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 20)), @bus.seats.find_by(seatnum: 20) %></div>
+        <% seats.each do |seat| %>
+                <% if(a < 21) %>
+                    <%= link_to seat do %>
+                        <div class="grid-item">
+                            <span class="grid-item-text"><%= message(seat) %></span>
+                        </div>
+                    <% end %>
+                    <% a += 1 %>
+                <% else %>
+                    <% break %>
+                <% end %>
+                
+        <% end %>
     </div>
     
     <div class="grid-container-single">
-       <div class="grid-item-single"><%= link_to message(@bus.seats.find_by(seatnum: 21)), @bus.seats.find_by(seatnum: 21) %></div>
+        <%= link_to @bus.seats.find_by(seatnum: 21) do %>
+            <div class="grid-item-single">
+                <span class="grid-item-text"><%= message(@bus.seats.find_by(seatnum: 21)) %></span>
+            </div>
+        <% end %>
     </div>
     
+    <% modSeats = seats[21...41] %>
     <div class="grid-container">
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 22)), @bus.seats.find_by(seatnum: 22) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 23)), @bus.seats.find_by(seatnum: 23) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 24)), @bus.seats.find_by(seatnum: 24) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 25)), @bus.seats.find_by(seatnum: 25) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 26)), @bus.seats.find_by(seatnum: 26) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 27)), @bus.seats.find_by(seatnum: 27) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 28)), @bus.seats.find_by(seatnum: 28) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 29)), @bus.seats.find_by(seatnum: 29) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 30)), @bus.seats.find_by(seatnum: 30) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 31)), @bus.seats.find_by(seatnum: 31) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 32)), @bus.seats.find_by(seatnum: 32) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 33)), @bus.seats.find_by(seatnum: 33) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 34)), @bus.seats.find_by(seatnum: 34) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 35)), @bus.seats.find_by(seatnum: 35) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 36)), @bus.seats.find_by(seatnum: 36) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 37)), @bus.seats.find_by(seatnum: 37) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 38)), @bus.seats.find_by(seatnum: 38) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 39)), @bus.seats.find_by(seatnum: 39) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 40)), @bus.seats.find_by(seatnum: 40) %></div>
-      <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 41)), @bus.seats.find_by(seatnum: 41) %></div>
+        <% a = 0 %>
+        <% modSeats.each do |seat| %>
+            <% if(a < 21) %>
+                    <%= link_to seat do %>
+                        <div class="grid-item">
+                            <span class="grid-item-text"><%= message(seat) %></span>
+                        </div>
+                    <% end %>
+                    <% a += 1 %>
+                <% else %>
+                    <% break %>
+                <% end %>
+        <% end %>
     </div>
+    <!--<div class="grid-container">-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 1)), @bus.seats.find_by(seatnum: 1) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 2)), @bus.seats.find_by(seatnum: 2) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 3)), @bus.seats.find_by(seatnum: 3) %></div>  -->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 4)), @bus.seats.find_by(seatnum: 4) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 5)), @bus.seats.find_by(seatnum: 5) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 6)), @bus.seats.find_by(seatnum: 6) %></div>  -->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 7)), @bus.seats.find_by(seatnum: 7) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 8)), @bus.seats.find_by(seatnum: 8) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 9)), @bus.seats.find_by(seatnum: 9) %></div> -->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 10)), @bus.seats.find_by(seatnum: 10) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 11)), @bus.seats.find_by(seatnum: 11) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 12)), @bus.seats.find_by(seatnum: 12) %></div>  -->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 13)), @bus.seats.find_by(seatnum: 13) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 14)), @bus.seats.find_by(seatnum: 14) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 15)), @bus.seats.find_by(seatnum: 15) %></div>  -->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 16)), @bus.seats.find_by(seatnum: 16) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 17)), @bus.seats.find_by(seatnum: 17) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 18)), @bus.seats.find_by(seatnum: 18) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 19)), @bus.seats.find_by(seatnum: 19) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 20)), @bus.seats.find_by(seatnum: 20) %></div>-->
+    <!--</div>-->
+    
+    
+    <!--<div class="grid-container">-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 22)), @bus.seats.find_by(seatnum: 22) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 23)), @bus.seats.find_by(seatnum: 23) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 24)), @bus.seats.find_by(seatnum: 24) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 25)), @bus.seats.find_by(seatnum: 25) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 26)), @bus.seats.find_by(seatnum: 26) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 27)), @bus.seats.find_by(seatnum: 27) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 28)), @bus.seats.find_by(seatnum: 28) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 29)), @bus.seats.find_by(seatnum: 29) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 30)), @bus.seats.find_by(seatnum: 30) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 31)), @bus.seats.find_by(seatnum: 31) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 32)), @bus.seats.find_by(seatnum: 32) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 33)), @bus.seats.find_by(seatnum: 33) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 34)), @bus.seats.find_by(seatnum: 34) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 35)), @bus.seats.find_by(seatnum: 35) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 36)), @bus.seats.find_by(seatnum: 36) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 37)), @bus.seats.find_by(seatnum: 37) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 38)), @bus.seats.find_by(seatnum: 38) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 39)), @bus.seats.find_by(seatnum: 39) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 40)), @bus.seats.find_by(seatnum: 40) %></div>-->
+    <!--  <div class="grid-item"><%= link_to message(@bus.seats.find_by(seatnum: 41)), @bus.seats.find_by(seatnum: 41) %></div>-->
+    <!--</div>-->
 </div>
 
-<ul class="users">
-    <center>
-        <% a = 1 %>
-        <% @bus.get_users.each do |user|%>
-             <% if user %>
-                 <%= a %>
-                 <%= render user %>
-                 <% a+= 1%>
-                 <br>
-             <% end %>
-        <% end %>
-    </center>
-</ul>
+<% if logged_in? && admin? %>
+    <ul class="users">
+        <center>
+            <% a = 1 %>
+            <% @bus.get_users.each do |user|%>
+                 <% if user %>
+                     <%= a %>
+                     <%= render user %>
+                     <% a+= 1%>
+                     <br>
+                 <% end %>
+            <% end %>
+        </center>
+    </ul>
+<% end %>

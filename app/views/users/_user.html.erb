@@ -2,7 +2,9 @@
     <%= link_to user.name + ", ID: " + 
                         user.idnum + ", Mobile Number: (" + user.mobilenum[0...3] + ")-" +
                         user.mobilenum[3...6] + "-" + user.mobilenum[6...10], user %>
-    <% if current_user && current_user.admin? && !current_user?(user) %>
+    
+    <!--admins can delete users and not other admins                    -->
+    <% if current_user && current_user.admin? && !current_user?(user) && !user.admin?%>
         | <%= link_to "delete", user, method: :delete,
                                         data: { confirm: "Are you sure?" } %>
     <% end %>  

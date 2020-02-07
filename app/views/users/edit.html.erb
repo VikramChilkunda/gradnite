@@ -8,10 +8,10 @@
             <%= f.text_field :name, class: 'form-control' %>
             
             <%= f.label :ID_NUMBER %>
-            <%= f.text_field :idnum, class: 'form-control' %>
+            <%= f.text_field :idnum, class: 'form-control', placeholder: '6 digits, ex: 123456'  %>
             
             <%= f.label :MOBILE_NUMBER %>
-            <%= f.text_field :mobilenum, class: 'form-control' %>
+            <%= f.text_field :mobilenum, class: 'form-control', placeholder: '10 digits, ex: 1234567890'  %>
             
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>

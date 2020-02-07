@@ -5,10 +5,10 @@
         <%= form_for(:session, url: login_path) do |f| %>
         
             <%= f.label :ID_Number %>
-            <%= f.text_field :idnum, class: 'form-control' %>
+            <%= f.text_field :idnum, class: 'form-control', placeholder: '6 digits, ex: 123456' %>
             
             <%= f.label :mobilenum %>
-            <%= f.text_field :mobilenum, class: 'form-control' %>
+            <%= f.text_field :mobilenum, class: 'form-control', placeholder: '10 digits, ex: 1234567890'  %>
             
             <%= f.label :remember_me, class: "checkbox inline" do %>
                 <%= f.check_box :remember_me %>
