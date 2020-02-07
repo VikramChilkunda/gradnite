@@ -8,4 +8,6 @@ class BusesController < ApplicationController
         @bus = Bus.find(params[:id])
         @seats = @bus.seats.all
     end
+    
+    private
 end
