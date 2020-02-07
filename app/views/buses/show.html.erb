@@ -78,11 +78,13 @@
     <center>
         <% a = 1 %>
         <% @bus.get_users.each do |user|%>
-             <%= a %>
-             <%= user.name %>
-             <%= render user %>
-             <% a+= 1%>
-             <br>
+             <% if user %>
+                 <%= a %>
+                 <%= user.name %>
+                 <%= render user %>
+                 <% a+= 1%>
+                 <br>
+             <% end %>
         <% end %>
     </center>
 </ul>
