@@ -227,16 +227,17 @@ input {
 }
 
 #bus{
-    width: 60%;
+    width: 70%;
     margin-bottom: 30px;
     img{
-        max-width:100%;
-        max-height:100%;
+        max-width:90%;
+        max-height:90%;
     }
-}
-
-.bus-num-text{
-    display: inline;
+    .bus-num-text{
+        display: inline;
+        float: left;
+        font-size: 1.4vw;
+    }
 }
 
 .navbar-brand{
@@ -304,4 +305,8 @@ input {
 }
 .btn-primary{
     float: right;
+}
+.jumbotron{
+    width: 100%;
+    text-align: center;
 }
