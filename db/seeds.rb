@@ -1,5 +1,5 @@
 User.create(name: "Vikram Chilkunda", idnum: "419419", mobilenum: "7472298734", password: "419419", password_confirmation: "419419", admin: "true")
-User.create(name: "Vikram Chilkunda", idnum: "419419", mobilenum: "7472298734", password: "419419", password_confirmation: "419419", admin: "true")
+User.create(name: "John Pehar", idnum: "111111", mobilenum: "1111111111", password: "111111", password_confirmation: "111111", admin: "true")
 # 99.times do |n|
 #     name = Faker::Name.name
 #     idnum = (rand 111111...999999).to_s
