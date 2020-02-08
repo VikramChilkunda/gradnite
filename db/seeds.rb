@@ -24,7 +24,7 @@ Bus.create(busnum: 8)
 i = 1
 userCount = 3
 while i < 9
-  41.times do |n|
+  40.times do |n|
    seatnum = n+1
    user_id = User.find(userCount)[:idnum]
    bus_id = i
