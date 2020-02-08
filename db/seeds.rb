@@ -24,11 +24,15 @@ Bus.create(busnum: 8)
 i = 1
 userCount = 3
 while i < 9
-  40.times do |n|
+  41.times do |n|
    seatnum = n+1
    user_id = User.find(userCount)[:idnum]
    bus_id = i
-   Seat.create(seatnum: seatnum, bus_id: bus_id, user_id: user_id)
+   if(n == 40)
+        Seat.create(seatnum: seatnum, bus_id: bus_id, user_id: nil)
+   else
+        Seat.create(seatnum: seatnum, bus_id: bus_id, user_id: user_id)
+   end
    User.find_by(idnum: user_id).update_attribute(:busnum, bus_id)
    User.find_by(idnum: user_id).update_attribute(:seatnum, seatnum)
    userCount += 1
