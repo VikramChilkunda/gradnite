@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200207071819) do
+ActiveRecord::Schema.define(version: 20200208215317) do
 
   create_table "buses", force: :cascade do |t|
     t.integer  "busnum"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20200207071819) do
     t.integer  "busnum"
     t.integer  "seatnum"
     t.string   "last_name"
+    t.string   "adminkey"
   end
 
 end
