@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.7'
-# gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap-sass', '3.4.1'
 gem 'bcrypt',                  '3.1.12'
 
-gem 'faker',                   '1.7.3'
+#gem 'faker',                   '1.7.3'
 
 gem 'carrierwave',             '1.2.2'
 
@@ -91,7 +91,7 @@ group :production do
 
   gem 'pg',  '0.20.0'
 
-  gem 'fog', '1.42.0'
+  gem 'fog', '1.42'
   
   gem 'rails_12factor'
 
