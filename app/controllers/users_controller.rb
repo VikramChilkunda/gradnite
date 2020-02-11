@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     Seat.find_by(user_id: user[:idnum]).update_attributes(user_id: nil)
     user.destroy
     flash[:success] = "User deleted"
-    redirect_to users_url
+    # redirect_to users_url
   end
   
   def update
