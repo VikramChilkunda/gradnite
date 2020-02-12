@@ -280,9 +280,9 @@ input {
         width: 100%;
     }
     .bus-img{
-        transform: rotate(-90deg) scale(1.6);
-        margin-top: 25vh;
-        position: relative;
+        transform: rotate(-90deg) scale(2);
+        margin-top: 30vh;
+        margin-bottom: 35vh;
         
         .grid-item, .grid-item-single{
             width: 7.8vw;
@@ -306,6 +306,9 @@ input {
     }
     .help-text{
         font-size: 20px;
+    }
+    .users{
+        margin-top: 50px;
     }
 }
 .btn-primary{
