@@ -25,6 +25,7 @@
     <span id="back-indicator">Back Side</span>
     <br>
 <div class="bus-img">
+    <% seats = @seats %>
     <% seats.each do |seat| %>
         <%= render seat %>
     <% end %>
