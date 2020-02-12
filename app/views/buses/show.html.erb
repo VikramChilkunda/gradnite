@@ -26,6 +26,9 @@
     <br>
 <div class="bus-img">
     <% seats = @seats %>
+    <% seats.each do |seat| %>
+        <%= render seat %>
+    <% end %>
     
     <% a = 1 %>
     <div class="grid-container">
