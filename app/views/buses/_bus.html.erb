@@ -2,13 +2,13 @@
     <h2 class="bus-num-text">
         <%= bus.busnum %>
     </h2>
-    <% if bus.get_users.length && bus.get_users.length.to_s == 41%>
+    <% if bus.get_users.length == 42%>
         <h1>Bus Full</h1>
     <% else %>
 
     <% end %>
     <%= link_to bus do %>
-        <% if  bus.get_users.length && bus.get_users.length == 41%>
+        <% if bus.get_users.length == 42%>
             <span id="bus-filter">
                 <%= image_tag("bus.png") %>
             </span>
