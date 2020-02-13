@@ -14,7 +14,7 @@ class Bus < ApplicationRecord
         
         str = str.sort_by{|s| s.split(' ').second}
         
-        users = []
+        users = ["Test "]
         str.each do |obj|
             obj = obj.rstrip
             users.push(User.find_by(name: obj))
