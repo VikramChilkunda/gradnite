@@ -120,11 +120,12 @@
 </div>
 
 <% if logged_in? && admin? %>
+<br><br><br><br><br>
     <ul class="users">
         <center>
             <% a = 1 %>
             <% @bus.get_users.each do |user|%>
-                 <% if user %>
+                 <% if a != 1 && user %>
                      <%= a %>
                      <%= render user %>
                      <% a+= 1%>
