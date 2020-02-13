@@ -125,7 +125,7 @@
         <center>
             <% a = 1 %>
             <% @bus.get_users.each do |user|%>
-                 <% if a != 1 && user %>
+                 <% if user %>
                      <%= a %>
                      <%= render user %>
                      <% a+= 1%>
