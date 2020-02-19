@@ -38,8 +38,8 @@ class UsersController < ApplicationController
   
   def destroy
     user = User.find(params[:id])
-    Seat.find_by(user_id: user[:idnum]).update_attributes(user_id: nil)
-    user.destroy
+    Seat.find_by(user_id: user.idnum).update_attributes(user_id: nil)
+    User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end
@@ -60,7 +60,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :idnum, :mobilenum, :password,
                             :password_confirmation)
     end
-    
     def logged_in_user
       unless logged_in?
         store_location
@@ -70,7 +69,7 @@ class UsersController < ApplicationController
     end
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless (current_user?(@user) or current_user.admin?)
     end
     def admin_user
       redirect_to(root_url) unless current_user.admin?

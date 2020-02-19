@@ -13,6 +13,14 @@
             <%= f.label :MOBILE_NUMBER %>
             <%= f.text_field :mobilenum, class: 'form-control', placeholder: '10 digits, ex: 1234567890'  %>
             
+            <% if admin? %>
+                <%= f.label :BUS_NUMBER %>
+                <%= f.text_field :busnum, class: 'form-control', placeholder: '1-8'  %>
+                
+                <%= f.label :SEAT_NUMBER %>
+                <%= f.text_field :seatnum, class: 'form-control', placeholder: '1-41'  %>
+            <% end %>
+            
             <%= f.submit "Save changes", class: "btn btn-primary" %>
         <% end %>
     </div>

@@ -6,7 +6,8 @@
     
     <!--admins can delete users and not other admins                    -->
     <% if current_user && current_user.admin? && !current_user?(user) && !user.admin?%>
-        | <%= link_to "delete", user, method: :delete,
+        | <%= link_to "Delete", user, method: :delete,
                                         data: { confirm: "Are you sure?" } %>
+        | <%= link_to "Edit", edit_user_path(user) %>
     <% end %>  
 </li>
