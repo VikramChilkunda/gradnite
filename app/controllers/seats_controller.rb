@@ -7,7 +7,7 @@ class SeatsController < ApplicationController
         
         if(@seat[:user_id] == nil)
             # Remove user's ownership of previous seat, if they are changing seats
-            if(Seat.find_by(user_id: current_user[:idnum]) != nil)
+            if(Seat.find_by(user_id: current_user[:idnum]))
                 Seat.find_by(user_id: current_user[:idnum]).update_attribute(:user_id, nil)
             end
             

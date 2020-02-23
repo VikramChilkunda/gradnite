@@ -1,12 +1,12 @@
 <% provide(:title, "Bus " + @bus.busnum.to_s) %>
 
 <% def message(seat) %>
-    <% if(seat != nil && User.find_by(idnum: seat.user_id) != nil && 
+    <% if(seat.user_id && User.find_by(idnum: seat.user_id) &&  
                 User.find_by(idnum: seat.user_id).name && 
                 User.find_by(idnum: seat.user_id).name.split(' ').first && 
                 User.find_by(idnum: seat.user_id).name.split(' ').second) %>
         <% User.find_by(idnum: seat.user_id).name.split(' ').first + " " + (User.find_by(idnum: seat.user_id).name.split(' ').second)[0]%>
-    <% elsif(seat!= nil) %>
+    <% elsif(seat) %>
         <% str = seat.seatnum.to_s %>
     <% end %>
 <% end %>
@@ -26,9 +26,9 @@
     <br>
 <div class="bus-img">
     <% seats = @seats %>
-    <% seats.each do |seat| %>
-        <%= render seat %>
-    <% end %>
+    <!--<% seats.each do |seat| %>-->
+    <!--    <%= render seat %>-->
+    <!--<% end %>-->
     
     <% a = 1 %>
     <div class="grid-container">
@@ -123,14 +123,14 @@
 <br><br><br><br><br>
     <ul class="users">
         <center>
-            <% a = 1 %>
+            <% a = 0 %>
             <% @bus.get_users.each do |user|%>
-                 <% if a != 1 && user %>
+                 <% if a != 0 && user %>
                      <%= a %>
                      <%= render user %>
-                     <% a+= 1%>
                      <br>
                  <% end %>
+                 <% a+= 1%>
             <% end %>
         </center>
     </ul>

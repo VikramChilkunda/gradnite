@@ -38,27 +38,52 @@ class UsersController < ApplicationController
   
   def destroy
     user = User.find(params[:id])
-    Seat.find_by(user_id: user.idnum).update_attributes(user_id: nil)
+    if(Seat.find_by(user_id: user.idnum))
+      Seat.find_by(user_id: user.idnum).update_attribute(:user_id, nil)
+    end
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:danger] = ("Student succesfully removed")
     redirect_to users_url
   end
   
   def update
+    seatAvailable = false
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+    if(params[:user][:busnum])
+      seatNumOnBus = params[:user][:seatnum].to_i
+      busnum = params[:user][:busnum].to_i
+      seatNum = (busnum - 1) * 41 + seatNumOnBus
+      newSeat = Seat.find(seatNum)
+
+      if(!newSeat.user_id)
+        seatAvailable = true
+        previousSeatNumOnBus = @user.seatnum.to_i
+        previousBusNum = @user.busnum.to_i
+        previousSeatNum = (previousBusNum - 1) * 41 + previousSeatNumOnBus
+        if previousSeat = Seat.find(previousSeatNum)
+          previousSeat.update_attribute(:user_id, nil)
+        end
+
+        newSeat.update_attribute(:user_id, params[:user][:idnum])
+      end
+    end 
+
+    if seatAvailable && @user.update_attributes(user_params)
+      flash[:success] = "Seat succesfully changed"
       redirect_to @user
     else
-      render 'edit'
+      if(!seatAvailable)
+        flash[:danger] = "Seat unavailable"
+        redirect_to edit
+      end
+      # render 'edit'
     end
   end
   
   private
   
     def user_params
-      params.require(:user).permit(:name, :idnum, :mobilenum, :password,
-                            :password_confirmation)
+       params.require(:user).permit(:name, :idnum, :mobilenum, :busnum, :seatnum)
     end
     def logged_in_user
       unless logged_in?
