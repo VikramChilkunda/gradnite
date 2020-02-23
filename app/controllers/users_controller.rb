@@ -25,8 +25,10 @@ class UsersController < ApplicationController
     @user.last_name = @user.name.split(' ').second
     if @user.save
       log_in @user
-      flash[:success] = "You have successfully registered for the GradNite App!"
+      flash[:success] = "Logged in"
       redirect_to @user
+      # format.html { redirect_to @user, success: 'Logged in.' }
+      # format.json { render :show, status: :created, location: @person }
     else 
       render 'new'
     end
@@ -42,13 +44,14 @@ class UsersController < ApplicationController
       Seat.find_by(user_id: user.idnum).update_attribute(:user_id, nil)
     end
     User.find(params[:id]).destroy
-    flash[:danger] = ("Student succesfully removed")
     redirect_to users_url
+    flash[:danger] = ("Student succesfully removed")
   end
   
   def update
     seatAvailable = false
     @user = User.find(params[:id])
+
     if(params[:user][:busnum])
       seatNumOnBus = params[:user][:seatnum].to_i
       busnum = params[:user][:busnum].to_i
@@ -63,7 +66,6 @@ class UsersController < ApplicationController
         if previousSeat = Seat.find(previousSeatNum)
           previousSeat.update_attribute(:user_id, nil)
         end
-
         newSeat.update_attribute(:user_id, params[:user][:idnum])
       end
     end 
@@ -71,6 +73,8 @@ class UsersController < ApplicationController
     if seatAvailable && @user.update_attributes(user_params)
       flash[:success] = "Seat succesfully changed"
       redirect_to @user
+      # format.html { redirect_to @user, success: 'Seat succesfully changed.' }
+      # format.json { render :show, status: :created, location: @person }
     else
       if(!seatAvailable)
         flash[:danger] = "Seat unavailable"
@@ -88,8 +92,10 @@ class UsersController < ApplicationController
     def logged_in_user
       unless logged_in?
         store_location
-        flash[:danger] = "Please log in."
+        flash[:danger] = "Please log in"
         redirect_to login_url
+        # format.html { redirect_to login_url, danger: 'Please log in.' }
+        # format.json { head :no_content }
       end
     end
     def correct_user

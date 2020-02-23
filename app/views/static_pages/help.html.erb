@@ -10,4 +10,15 @@
         Then, click the "Home" button, and choose any of the 8 buses. Finally, click on the seat you want to choose.
         To change your seat, simply click on another seat that is empty. 
     <% end %>
+    
+    <% if admin? %>
+    <br><br>
+        There are a list of features that administrators are able to use. These are:
+        <ul class="adminfeatureslist">
+            <li>Creating posts viewable by all students</li>
+            <li>Viewing all students who have created an account, and all students on each bus</li>
+            <li>Moving a student to a different seat or removing their account entirely</li>
+        </ul>
+    
+    <% end %>
 </p>

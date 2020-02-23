@@ -1,7 +1,11 @@
 <% provide(:title, "Bus " + @bus.busnum.to_s) %>
 
 <% def message(seat) %>
+<<<<<<< HEAD
     <% if(seat.user_id && User.find_by(idnum: seat.user_id) &&  
+=======
+    <% if(seat.user_id && User.find_by(idnum: seat.user_id) && 
+>>>>>>> 1dcf11d308baac798791aa2d4fe7d9acd513d5ea
                 User.find_by(idnum: seat.user_id).name && 
                 User.find_by(idnum: seat.user_id).name.split(' ').first && 
                 User.find_by(idnum: seat.user_id).name.split(' ').second) %>
